@@ -21,6 +21,7 @@ public class Population {
 		counter++;
 	}
 	
+	//--------------------------------------------------------------
 	public void reproduce() {
 		ArrayList<Integer> mateNumbers = new ArrayList<>();
 		for (int i = 0; i < population.size() / 2; i++) {
@@ -38,6 +39,7 @@ public class Population {
 		}
 		population = newPopulation;
 	}
+	//--------------------------------------------------------------
 	
 	public double getPercentFitted() {
 		double cnt = 0;
