@@ -1,10 +1,11 @@
 import java.util.Random;
 
+//klasa implementuje zachowanie pojedynczego osobnika
 public class Creature implements Comparable<Creature>{
 	
 	private static final Random R = new Random();
 	private final String genes;
-	private static String TARGET = "Never gonna give you up";
+	private static String TARGET = "Never gonna give you up"; //napis docelowy, statyczne pole wiec wszystkie osobniki maja do niego dostêp
 	private static double mutationRate = 0.02;
 	private double fitness;
 	private boolean hasNotLivedYet = true;
@@ -22,6 +23,7 @@ public class Creature implements Comparable<Creature>{
 		genes = reproduceFromTwoParents(parent1, parent2, pivot);
 	}
 	
+	//odpowiada za reprodukcje, utworzenie nowego wektora genów
 	private String reproduceFromTwoParents(Creature parent1,
 			Creature parent2, int pivot) {
 		StringBuilder sb = new StringBuilder();
@@ -46,6 +48,7 @@ public class Creature implements Comparable<Creature>{
 		Creature.mutationRate = mutRate;
 	}
 	
+	//podczas ¿ycia osobnika, wyznaczenie jak dobre jest dopasowanie do srodowiska
 	public void live() {
 		fitness = 0.0;
 		for (int i = 0; i < genes.length(); i++) {
@@ -64,6 +67,7 @@ public class Creature implements Comparable<Creature>{
 		return fitness;
 	}
 		
+	//generuje losowy znak ascii z przedzia³u
 	private char generateRandomGene() {
 		int min = 32;
 		int max = 127;
